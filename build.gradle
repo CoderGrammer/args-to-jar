@@ -1,0 +1,60 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'uk.org.webcompere:system-stubs-jupiter:1.1.0'
+}
+
+task echoProps {
+
+    // Built in property
+    // println "Existing Project property: " + project.name
+
+    // Custom properties
+    // Set from command line with -P
+    // println "Custom property set with -P: " + myProp // set from the command line with -P
+
+    // Set from System Prop
+    // println "Custom property set via System Property, accessed with prefix: " + project.sysProp
+    // println "Custom property set via System Property, accessed directly: " + sysProp
+
+    // Set from Env Var
+    // println "Custom property set via Environment Variable, accessed with prefix: " + project.prop
+    // println "Custom property set via Environment Variable, accessed directly: " + prop
+
+}
+
+task echoSysProps {
+
+    // System Properties
+    // println "System Property: " + System.getProperty("mySystemProp")
+    // println "System Property: " + System.getProperty("prop2")
+
+}
+
+task echoEnvProps {
+
+    // Environment Variables
+    // println "Environment Variable: " + System.getenv("SHELL")
+    // println "Environment Variable: $System.env.SHELL"
+
+}
+
+test {
+	useJUnitPlatform()
+}
